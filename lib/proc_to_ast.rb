@@ -89,7 +89,7 @@ class Proc
 
   # @param highlight [Boolean] enable output highlight
   # @return [String] proc source code
-  def to_source(highlight: false)
+  def to_source(highlight = false)
     source = Unparser.unparse(to_ast)
     if highlight
       CodeRay.scan(source, :ruby).terminal
@@ -98,7 +98,7 @@ class Proc
     end
   end
 
-  def to_raw_source(highlight: false)
+  def to_raw_source(highlight = false)
     source = to_ast.loc.expression.source
 
     if highlight
